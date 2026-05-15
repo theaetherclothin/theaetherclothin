@@ -1,0 +1,763 @@
+/* HOME PAGE STYLES */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 60px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: black;
+  z-index: 1000;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 32px;
+  letter-spacing: 3px;
+}
+
+nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+nav a:hover {
+  opacity: 0.6;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: url("https://via.placeholder.com/1200x800") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding-left: 60px;
+}
+
+.hero-content h2 {
+  font-size: 70px;
+  margin: 0;
+}
+
+.hero-content p {
+  font-size: 22px;
+  margin: 10px 0 20px;
+}
+
+.hero-content button {
+  padding: 12px 30px;
+  border: none;
+  background: white;
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+.hero-content button:hover {
+  background: #d1d1d1;
+}
+
+/* COLLECTIONS PREVIEW */
+.collections-preview {
+  padding: 120px 60px;
+}
+
+.collections-preview h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.product-grid {
+  display: flex;
+  gap: 40px;
+}
+
+.product img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.product h3 {
+  margin: 10px 0 5px;
+}
+
+.product p {
+  opacity: 0.7;
+}
+
+/* ABOUT */
+.about {
+  padding: 120px 60px;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 40px;
+}
+
+.about p {
+  max-width: 700px;
+  margin: 20px auto;
+  opacity: 0.8;
+}
+
+/* CONTACT */
+.contact {
+  padding: 120px 60px;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 40px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px;
+  opacity: 0.6;
+}
+/* HOME PAGE STYLES */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 60px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: black;
+  z-index: 1000;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 32px;
+  letter-spacing: 3px;
+}
+
+nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+nav a:hover {
+  opacity: 0.6;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: url("https://via.placeholder.com/1200x800") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding-left: 60px;
+}
+
+.hero-content h2 {
+  font-size: 70px;
+  margin: 0;
+}
+
+.hero-content p {
+  font-size: 22px;
+  margin: 10px 0 20px;
+}
+
+.hero-content button {
+  padding: 12px 30px;
+  border: none;
+  background: white;
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+.hero-content button:hover {
+  background: #d1d1d1;
+}
+
+/* COLLECTIONS PREVIEW */
+.collections-preview {
+  padding: 120px 60px;
+}
+
+.collections-preview h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.product-grid {
+  display: flex;
+  gap: 40px;
+}
+
+.product img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.product h3 {
+  margin: 10px 0 5px;
+}
+
+.product p {
+  opacity: 0.7;
+}
+
+/* ABOUT */
+.about {
+  padding: 120px 60px;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 40px;
+}
+
+.about p {
+  max-width: 700px;
+  margin: 20px auto;
+  opacity: 0.8;
+}
+
+/* CONTACT */
+.contact {
+  padding: 120px 60px;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 40px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px;
+  opacity: 0.6;
+}
+/* HOME PAGE STYLES */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 60px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: black;
+  z-index: 1000;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 32px;
+  letter-spacing: 3px;
+}
+
+nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+nav a:hover {
+  opacity: 0.6;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: url("https://via.placeholder.com/1200x800") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding-left: 60px;
+}
+
+.hero-content h2 {
+  font-size: 70px;
+  margin: 0;
+}
+
+.hero-content p {
+  font-size: 22px;
+  margin: 10px 0 20px;
+}
+
+.hero-content button {
+  padding: 12px 30px;
+  border: none;
+  background: white;
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+.hero-content button:hover {
+  background: #d1d1d1;
+}
+
+/* COLLECTIONS PREVIEW */
+.collections-preview {
+  padding: 120px 60px;
+}
+
+.collections-preview h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.product-grid {
+  display: flex;
+  gap: 40px;
+}
+
+.product img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.product h3 {
+  margin: 10px 0 5px;
+}
+
+.product p {
+  opacity: 0.7;
+}
+
+/* ABOUT */
+.about {
+  padding: 120px 60px;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 40px;
+}
+
+.about p {
+  max-width: 700px;
+  margin: 20px auto;
+  opacity: 0.8;
+}
+
+/* CONTACT */
+.contact {
+  padding: 120px 60px;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 40px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px;
+  opacity: 0.6;
+}
+/* HOME PAGE STYLES */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 60px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: black;
+  z-index: 1000;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 32px;
+  letter-spacing: 3px;
+}
+
+nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+nav a:hover {
+  opacity: 0.6;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: url("https://via.placeholder.com/1200x800") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding-left: 60px;
+}
+
+.hero-content h2 {
+  font-size: 70px;
+  margin: 0;
+}
+
+.hero-content p {
+  font-size: 22px;
+  margin: 10px 0 20px;
+}
+
+.hero-content button {
+  padding: 12px 30px;
+  border: none;
+  background: white;
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+.hero-content button:hover {
+  background: #d1d1d1;
+}
+
+/* COLLECTIONS PREVIEW */
+.collections-preview {
+  padding: 120px 60px;
+}
+
+.collections-preview h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.product-grid {
+  display: flex;
+  gap: 40px;
+}
+
+.product img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.product h3 {
+  margin: 10px 0 5px;
+}
+
+.product p {
+  opacity: 0.7;
+}
+
+/* ABOUT */
+.about {
+  padding: 120px 60px;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 40px;
+}
+
+.about p {
+  max-width: 700px;
+  margin: 20px auto;
+  opacity: 0.8;
+}
+
+/* CONTACT */
+.contact {
+  padding: 120px 60px;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 40px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px;
+  opacity: 0.6;
+}
+/* RESET + BASE -------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #0b0b0b;
+  color: #f2f2f2;
+  line-height: 1.6;
+}
+
+/* HEADER --------------------------------------------------------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 60px;
+  background: #000;
+  border-bottom: 1px solid #222;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+header h1 {
+  letter-spacing: 6px;
+  font-size: 28px;
+}
+
+nav a {
+  color: #f2f2f2;
+  text-decoration: none;
+  margin-left: 25px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+nav a:hover {
+  color: #888;
+}
+
+/* HERO ----------------------------------------------------------- */
+.hero {
+  height: 90vh;
+  background: url("https://via.placeholder.com/1600x900") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h2 {
+  font-size: 70px;
+  letter-spacing: 5px;
+  font-weight: 700;
+}
+
+.hero p {
+  margin: 20px 0 30px;
+  font-size: 22px;
+  opacity: 0.9;
+}
+
+.hero button {
+  padding: 15px 45px;
+  border: none;
+  background: white;
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+.hero button:hover {
+  background: #d1d1d1;
+}
+
+/* COLLECTIONS PREVIEW ------------------------------------------- */
+.collections-preview {
+  text-align: center;
+  padding: 100px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.collections-preview h2 {
+  font-size: 40px;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+}
+
+.product-grid {
+  display: flex;
+  justify-content: center;
+  gap: 45px;
+  flex-wrap: wrap;
+}
+
+.product {
+  background: #141414;
+  padding: 25px;
+  width: 300px;
+  border-radius: 8px;
+  transition: 0.3s ease;
+  border: 1px solid #1f1f1f;
+  text-align: center;
+}
+
+.product:hover {
+  transform: translateY(-12px);
+  border-color: #333;
+}
+
+.product img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.product h3 {
+  margin-top: 15px;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.product p {
+  margin-top: 8px;
+  font-size: 18px;
+  opacity: 0.85;
+}
+
+/* ABOUT ---------------------------------------------------------- */
+.about {
+  padding: 100px 60px;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.about p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 18px;
+  opacity: 0.85;
+}
+
+/* CONTACT PREVIEW ------------------------------------------------ */
+.contact {
+  padding: 100px 60px;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.contact p {
+  font-size: 18px;
+  opacity: 0.85;
+}
+
+/* FOOTER --------------------------------------------------------- */
+footer {
+  text-align: center;
+  padding: 25px;
+  background: black;
+  font-size: 14px;
+  border-top: 1px solid #222;
+}
+
+/* RESPONSIVE ----------------------------------------------------- */
+@media (max-width: 768px) {
+  header {
+    padding: 20px 30px;
+  }
+
+  nav a {
+    margin-left: 15px;
+  }
+
+  .hero h2 {
+    font-size: 45px;
+  }
+
+  .collections-preview,
+  .about,
+  .contact {
+    padding: 70px 30px;
+  }
+}

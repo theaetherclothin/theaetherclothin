@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aether — Shop</title>
+  <link rel="stylesheet" href="shop.css">
+</head>
+
+<body>
+
+  <header>
+    <a href="home.html" class="logo-link"><h1>AETHER</h1></a>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="collection.html">NewCollections</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html" class="cart-link">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Shop Aether</h2>
+      <p>Premium streetwear for creators.</p>
+    </div>
+  </section>
+
+  <section class="products">
+    <h2>All Products</h2>
+
+    <div class="product-grid">
+
+      <div class="product" data-id="og-tee" data-name="OG Tee" data-price="30.99">
+        <img src="https://via.placeholder.com/400x500" alt="OG Tee">
+        <h3>OG Tee</h3>
+        <p class="price">$30.99</p>
+        <select class="size-select">
+          <option value="S">S</option>
+          <option value="M" selected>M</option>
+          <option value="L">L</option>
+        </select>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product" data-id="cream-tee" data-name="Cream Tee" data-price="31.99">
+        <img src="https://via.placeholder.com/400x500" alt="Cream Tee">
+        <h3>Creamy Tee</h3>
+        <p class="price">$31.99</p>
+        <select class="size-select">
+          <option value="S">S</option>
+          <option value="M" selected>M</option>
+          <option value="L">L</option>
+        </select>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product" data-id="obsidian-tee" data-name="Obsidian Tee" data-price="32.99">
+        <img src="" alt="Obsidian Tee">
+        <h3>Obsidian Tee</h3>
+        <p class="price">$32.99</p>
+        <select class="size-select">
+          <option value="S">S</option>
+          <option value="M" selected>M</option>
+          <option value="L">L</option>
+        </select>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product" data-id="midnight-hoodie" data-name="Midnight Hoodie" data-price="59.99">
+        <img src="" alt="Blacked out Hoodie">
+        <h3>Blacked Out Hoodie</h3>
+        <p class="price">$56.99</p>
+        <select class="size-select">
+          <option value="S">S</option>
+          <option value="M" selected>M</option>
+          <option value="L">L</option>
+        </select>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product" data-id="shadow-hoodie" data-name="Shadow Hoodie" data-price="62.99">
+        <img src="https://via.placeholder.com/400x500" alt="Sky Blue Hoodie">
+        <h3>Sky Blue Hoodie</h3>
+        <p class="price">$59.99</p>
+        <select class="size-select">
+          <option value="S">S</option>
+          <option value="M" selected>M</option>
+          <option value="L">L</option>
+        </select>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product" data-id="aether-cap" data-name="Aether Cap" data-price="24.99">
+        <img src="https://via.placeholder.com/400x500" alt="Anniversary Tee">
+        <h3>Anniversary tee</h3>
+        <p class="price">$24.99</p>
+        <select class="size-select">
+          <option value="One Size" selected>One Size</option>
+        </select>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Aether. All Rights Reserved.</p>
+  </footer>
+
+  <script src="cart.js"></script>
+</body>
+</html>

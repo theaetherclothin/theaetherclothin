@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aether — Collections</title>
+  <link rel="stylesheet" href="collections.css">
+</head>
+
+<body>
+
+  <header>
+    <a href="home.html" class="logo-link"><h1>AETHER</h1></a>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="collections.html" class="active">NewCollections</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html" class="cart-link">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <section class="collections">
+    <h2>New Collections</h2>
+    <p>Explore our latest drops and seasonal releases.</p>
+
+    <div class="collection-grid">
+
+      <!-- ITEM 1 -->
+      <div class="product" data-id="essentials-tee" data-name="Essentials Tee" data-price="34.99">
+        <img src="https://via.placeholder.com/500x600" alt="Essentials Tee">
+        <h3>Essentials Tee</h3>
+        <p class="price">$34.99</p>
+
+        <select class="size-select">
+          <option value="S">S</option>
+          <option value="M" selected>M</option>
+          <option value="L">L</option>
+        </select>
+
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <!-- ITEM 2 -->
+      <div class="product" data-id="urban-hoodie" data-name="Urban Hoodie" data-price="64.99">
+        <img src="https://via.placeholder.com/500x600" alt="Urban Hoodie">
+        <h3>Urban Hoodie</h3>
+        <p class="price">$64.99</p>
+
+        <select class="size-select">
+          <option value="S">S</option>
+          <option value="M" selected>M</option>
+          <option value="L">L</option>
+        </select>
+
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <!-- ITEM 3 -->
+      <div class="product" data-id="blackout-jacket" data-name="Blackout Jacket" data-price="89.99">
+        <img src="https://via.placeholder.com/500x600" alt="Blackout Jacket">
+        <h3>Blackout Jacket</h3>
+        <p class="price">$89.99</p>
+
+        <select class="size-select">
+          <option value="S">S</option>
+          <option value="M" selected>M</option>
+          <option value="L">L</option>
+        </select>
+
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Aether. All Rights Reserved.</p>
+  </footer>
+
+  <script src="cart.js"></script>
+</body>
+</html>
