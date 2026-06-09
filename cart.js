@@ -1,4 +1,4 @@
-// AETHER CART SYSTEM (LOCALSTORAGE + STRIPE CHECKOUT)
+// AETHER CART SYSTEM (LOCALSTORAGE)
 
 const CART_KEY = "aether_cart";
 
@@ -128,7 +128,7 @@ document.addEventListener("click", (e) => {
 });
 
 // -------------------------
-// CHECKOUT (STRIPE)
+// CHECKOUT REDIRECT
 // -------------------------
 document.addEventListener("DOMContentLoaded", () => {
   updateCartCount();
@@ -137,21 +137,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const checkoutBtn = document.getElementById("checkout-button");
 
   if (checkoutBtn) {
-    checkoutBtn.addEventListener("click", async () => {
+    checkoutBtn.addEventListener("click", () => {
       const cart = getCart();
       if (cart.length === 0) return;
 
-      const response = await fetch("http://localhost:4242/create-checkout-session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items: cart }),
-      });
+      // Save cart so checkout page can read it
+      localStorage.setItem("aether_cart", JSON.stringify(cart));
 
-      const data = await response.json();
-
-      if (data.url) {
-        window.location = data.url;
-      }
+      // Redirect to checkout page
+      window.location.href = "checkout.html";
     });
   }
 });
