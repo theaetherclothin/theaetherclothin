@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aether Checkout</title>
+  <link rel="stylesheet" href="checkout.css">
+</head>
+
+<body>
+
+  <div class="checkout-container">
+    <h2>Checkout</h2>
+
+    <input id="name" placeholder="Full Name">
+    <input id="email" placeholder="Email">
+    <input id="address" placeholder="Address">
+
+    <button onclick="submitOrder()">Place Order</button>
+  </div>
+
+  <script>
+    // TEMPORARY CART DATA (until we connect your real cart)
+    const cartItems = [
+      { product: "Aether Hoodie", size: "M", price: 80 }
+    ];
+    const cartTotal = 80;
+
+    async function submitOrder() {
+      const orderData = {
+        name: document.querySelector("#name").value,
+        email: document.querySelector("#email").value,
+        address: document.querySelector("#address").value,
+        items: cartItems,
+        total: cartTotal,
+        payment_method: "card"
+      };
+
+      const response = await fetch("http://localhost:3000/order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(orderData)
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert("Order placed! Order ID: " + result.orderId);
+      } else {
+        alert("Error: " + result.error);
+      }
+    }
+  </script>
+
+</body>
+</html>
