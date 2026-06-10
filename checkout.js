@@ -101,6 +101,11 @@ async function submitOrder() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(orderData)
     });
+document.getElementById("place-order-btn").addEventListener("click", async () => {
+  document.getElementById("loading-overlay").style.display = "flex";
+
+  // your existing fetch code here
+});
 
     const result = await response.json();
 
