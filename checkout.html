@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Aether Checkout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="checkout.css">
   <link rel="stylesheet" href="responsive.css">
 </head>
@@ -14,30 +15,31 @@
     <input id="name" placeholder="Full Name">
     <input id="email" placeholder="Email">
     <input id="address" placeholder="Address">
+
     <h3>Payment Method</h3>
 
-<label class="payment-option">
-  <input type="radio" name="payment" value="cash">
-  Cash
-</label>
+    <label class="payment-option">
+      <input type="radio" name="payment" value="cash">
+      Cash
+    </label>
 
-<label class="payment-option">
-  <input type="radio" name="payment" value="bank_transfer">
-  Bank Transfer
-</label>
+    <label class="payment-option">
+      <input type="radio" name="payment" value="bank_transfer">
+      Bank Transfer
+    </label>
 
-
-    <!-- OPTIONAL: Order summary (checkout.js will fill this) -->
     <div id="checkout-summary"></div>
 
-    <button onclick="submitOrder()">Place Order</button>
+    <!-- FIXED BUTTON -->
+    <button id="place-order-btn">Place Order</button>
   </div>
-<div id="loading-overlay">
-  <div class="spinner"></div>
-  <p>Processing your order...</p>
-</div>
 
-  <!-- Your real checkout logic -->
+  <!-- LOADING OVERLAY -->
+  <div id="loading-overlay">
+    <div class="spinner"></div>
+    <p>Processing your order...</p>
+  </div>
+
   <script src="checkout.js"></script>
 
 </body>
