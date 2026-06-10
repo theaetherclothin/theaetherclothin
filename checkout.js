@@ -38,16 +38,42 @@ function renderCheckoutSummary() {
 }
 
 // -------------------------
+// VALIDATE REQUIRED FIELDS
+// -------------------------
+function validateFields() {
+  const name = document.querySelector("#name").value.trim();
+  const email = document.querySelector("#email").value.trim();
+  const address = document.querySelector("#address").value.trim();
+  const payment = document.querySelector("input[name='payment']:checked");
+
+  if (!name || !email || !address) {
+    alert("Please fill in all required details before placing your order.");
+    return false;
+  }
+
+  if (!payment) {
+    alert("Please select a payment method.");
+    return false;
+  }
+
+  return true;
+}
+
+// -------------------------
 // SUBMIT ORDER TO BACKEND
 // -------------------------
 async function submitOrder() {
+  if (!validateFields()) return;
+
+  const paymentMethod = document.querySelector("input[name='payment']:checked").value;
+
   const orderData = {
     name: document.querySelector("#name").value.trim(),
     email: document.querySelector("#email").value.trim(),
     address: document.querySelector("#address").value.trim(),
     items: cart,
     total: cartTotal,
-    payment_method: "card"
+    payment_method: paymentMethod
   };
 
   try {
@@ -61,8 +87,6 @@ async function submitOrder() {
 
     if (result.success) {
       localStorage.removeItem("aether_cart");
-
-      // ⭐ Redirect to success page
       window.location.href = `success.html?orderId=${result.orderId}`;
     } else {
       alert("Error: " + result.error);
@@ -77,4 +101,3 @@ async function submitOrder() {
 // INIT
 // -------------------------
 document.addEventListener("DOMContentLoaded", renderCheckoutSummary);
-
