@@ -6,13 +6,10 @@
 const cart = JSON.parse(localStorage.getItem("aether_cart")) || [];
 
 // Calculate total
-let cartTotal = 0;
-cart.forEach(item => {
-  cartTotal += item.price * item.quantity;
-});
+let cartTotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
 // -------------------------
-// OPTIONAL: DISPLAY SUMMARY
+// DISPLAY SUMMARY
 // -------------------------
 function renderCheckoutSummary() {
   const summaryContainer = document.getElementById("checkout-summary");
@@ -23,20 +20,21 @@ function renderCheckoutSummary() {
     return;
   }
 
-  let html = "";
-  cart.forEach(item => {
-    html += `
-      <div class="summary-item">
-        <strong>${item.name}</strong>
-        <span>Size: ${item.size}</span>
-        <span>Qty: ${item.quantity}</span>
-        <span>$${(item.price * item.quantity).toFixed(2)}</span>
-      </div>
-    `;
-  });
-
-  html += `<p class="summary-total">Total: $${cartTotal.toFixed(2)}</p>`;
-  summaryContainer.innerHTML = html;
+  summaryContainer.innerHTML = `
+    ${cart
+      .map(
+        item => `
+        <div class="summary-item">
+          <strong>${item.name}</strong>
+          <span>Size: ${item.size}</span>
+          <span>Qty: ${item.quantity}</span>
+          <span>$${(item.price * item.quantity).toFixed(2)}</span>
+        </div>
+      `
+      )
+      .join("")}
+    <p class="summary-total">Total: $${cartTotal.toFixed(2)}</p>
+  `;
 }
 
 // -------------------------
@@ -44,39 +42,39 @@ function renderCheckoutSummary() {
 // -------------------------
 async function submitOrder() {
   const orderData = {
-    name: document.querySelector("#name").value,
-    email: document.querySelector("#email").value,
-    address: document.querySelector("#address").value,
+    name: document.querySelector("#name").value.trim(),
+    email: document.querySelector("#email").value.trim(),
+    address: document.querySelector("#address").value.trim(),
     items: cart,
     total: cartTotal,
     payment_method: "card"
   };
 
-  const response = await fetch("https://aether-backend-jcfm.onrender.com/order", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(orderData)
-  });
+  try {
+    const response = await fetch("https://aether-backend-jcfm.onrender.com/order", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(orderData)
+    });
 
-  const result = await response.json();
+    const result = await response.json();
 
-  if (result.success) {
-    alert("Order placed! Order ID: " + result.orderId);
+    if (result.success) {
+      localStorage.removeItem("aether_cart");
 
-    // Clear cart after successful order
-    localStorage.removeItem("aether_cart");
-
-    // Redirect to success page (optional)
-    // window.location.href = "success.html?orderId=" + result.orderId;
-
-  } else {
-    alert("Error: " + result.error);
+      // ⭐ Redirect to success page
+      window.location.href = `success.html?orderId=${result.orderId}`;
+    } else {
+      alert("Error: " + result.error);
+    }
+  } catch (err) {
+    alert("Network error — please try again.");
+    console.error(err);
   }
 }
 
 // -------------------------
 // INIT
 // -------------------------
-document.addEventListener("DOMContentLoaded", () => {
-  renderCheckoutSummary();
-});
+document.addEventListener("DOMContentLoaded", renderCheckoutSummary);
+
