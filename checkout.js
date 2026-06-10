@@ -46,34 +46,14 @@ function validateFields() {
   const address = document.querySelector("#address").value.trim();
   const payment = document.querySelector("input[name='payment']:checked");
 
-  // NAME — letters + spaces only
   const nameValid = /^[A-Za-z\s]{2,40}$/.test(name);
-
-  // EMAIL — must be real format
   const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-  // ADDRESS — must be at least 5 characters
   const addressValid = address.length >= 5;
 
-  if (!nameValid) {
-    alert("Please enter a valid name.");
-    return false;
-  }
-
-  if (!emailValid) {
-    alert("Please enter a valid email address.");
-    return false;
-  }
-
-  if (!addressValid) {
-    alert("Please enter a valid address.");
-    return false;
-  }
-
-  if (!payment) {
-    alert("Please select a payment method.");
-    return false;
-  }
+  if (!nameValid) return alert("Please enter a valid name.");
+  if (!emailValid) return alert("Please enter a valid email address.");
+  if (!addressValid) return alert("Please enter a valid address.");
+  if (!payment) return alert("Please select a payment method.");
 
   return true;
 }
@@ -83,6 +63,9 @@ function validateFields() {
 // -------------------------
 async function submitOrder() {
   if (!validateFields()) return;
+
+  // Show loading overlay instantly
+  document.getElementById("loading-overlay").style.display = "flex";
 
   const paymentMethod = document.querySelector("input[name='payment']:checked").value;
 
@@ -101,11 +84,6 @@ async function submitOrder() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(orderData)
     });
-document.getElementById("place-order-btn").addEventListener("click", async () => {
-  document.getElementById("loading-overlay").style.display = "flex";
-
-  // your existing fetch code here
-});
 
     const result = await response.json();
 
@@ -114,10 +92,12 @@ document.getElementById("place-order-btn").addEventListener("click", async () =>
       window.location.href = `success.html?orderId=${result.orderId}`;
     } else {
       alert("Error: " + result.error);
+      document.getElementById("loading-overlay").style.display = "none";
     }
   } catch (err) {
     alert("Network error — please try again.");
     console.error(err);
+    document.getElementById("loading-overlay").style.display = "none";
   }
 }
 
@@ -125,4 +105,7 @@ document.getElementById("place-order-btn").addEventListener("click", async () =>
 // INIT
 // -------------------------
 document.addEventListener("DOMContentLoaded", renderCheckoutSummary);
+
+// Attach event listener properly
+document.getElementById("place-order-btn").addEventListener("click", submitOrder);
 
