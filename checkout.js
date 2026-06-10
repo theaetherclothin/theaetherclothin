@@ -38,7 +38,7 @@ function renderCheckoutSummary() {
 }
 
 // -------------------------
-// VALIDATE REQUIRED FIELDS
+// VALIDATION RULES
 // -------------------------
 function validateFields() {
   const name = document.querySelector("#name").value.trim();
@@ -46,8 +46,27 @@ function validateFields() {
   const address = document.querySelector("#address").value.trim();
   const payment = document.querySelector("input[name='payment']:checked");
 
-  if (!name || !email || !address) {
-    alert("Please fill in all required details before placing your order.");
+  // NAME — letters + spaces only
+  const nameValid = /^[A-Za-z\s]{2,40}$/.test(name);
+
+  // EMAIL — must be real format
+  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  // ADDRESS — must be at least 5 characters
+  const addressValid = address.length >= 5;
+
+  if (!nameValid) {
+    alert("Please enter a valid name.");
+    return false;
+  }
+
+  if (!emailValid) {
+    alert("Please enter a valid email address.");
+    return false;
+  }
+
+  if (!addressValid) {
+    alert("Please enter a valid address.");
     return false;
   }
 
@@ -101,3 +120,4 @@ async function submitOrder() {
 // INIT
 // -------------------------
 document.addEventListener("DOMContentLoaded", renderCheckoutSummary);
+
