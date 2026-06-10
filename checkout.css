@@ -26,6 +26,8 @@ body {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
+
+/* LOADING OVERLAY */
 #loading-overlay {
   position: fixed;
   top: 0;
@@ -88,4 +90,31 @@ body {
 
 .checkout-container button:hover {
   background: #d1d1d1;
+}
+
+/* -------------------------
+   RESPONSIVE (MOBILE)
+-------------------------- */
+@media (max-width: 768px) {
+
+  body {
+    padding-top: 120px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .checkout-container {
+    width: 100%;
+    padding: 25px;
+  }
+
+  .checkout-container h2 {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .checkout-container button {
+    font-size: 1rem;
+    padding: 16px;
+  }
 }
