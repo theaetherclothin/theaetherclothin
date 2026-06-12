@@ -3,29 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <title>Aether — Order Successful</title>
+
   <link rel="stylesheet" href="shop.css">
   <link rel="stylesheet" href="responsive.css">
+
   <style>
+    body {
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
     .success-container {
       max-width: 500px;
       margin: 120px auto;
       text-align: center;
       color: white;
+      padding: 20px;
     }
+
     .success-container h1 {
       font-size: 32px;
       margin-bottom: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
+
     .success-container p {
       font-size: 18px;
       opacity: 0.8;
     }
+
     .order-id {
       margin-top: 20px;
       font-size: 20px;
       font-weight: bold;
       color: #7dd3fc;
     }
+
+    /* BANK DETAILS BOX */
+    .bank-details {
+      background: #111;
+      border: 1px solid #333;
+      padding: 18px;
+      border-radius: 6px;
+      margin-top: 25px;
+      text-align: left;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
     .back-btn {
       margin-top: 40px;
       padding: 12px 24px;
@@ -39,6 +70,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <div class="success-container">
@@ -47,15 +79,29 @@
 
     <p class="order-id" id="orderId">Loading...</p>
 
+    <!-- BANK DETAILS (hidden until JS reveals it) -->
+    <div id="bank-details-confirm" class="bank-details hidden">
+      <p><strong>Account Name:</strong> Aether Clothing</p>
+      <p><strong>BSB:</strong> 123-456</p>
+      <p><strong>Account Number:</strong> 987654321</p>
+    </div>
+
     <a href="index.html" class="back-btn">Return Home</a>
   </div>
 
   <script>
     const params = new URLSearchParams(window.location.search);
     const id = params.get("orderId");
+    const payment = params.get("payment");
 
+    // Show order number
     document.getElementById("orderId").textContent =
       "Order ID: " + (id || "Unknown");
+
+    // Reveal bank details ONLY if bank transfer was selected
+    if (payment === "bank_transfer") {
+      document.getElementById("bank-details-confirm").classList.remove("hidden");
+    }
   </script>
 
 </body>
