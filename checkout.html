@@ -4,26 +4,22 @@
   <title>Aether Checkout</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Stylesheets -->
   <link rel="stylesheet" href="checkout.css">
   <link rel="stylesheet" href="responsive.css">
 </head>
 
 <body>
 
-  <div class="checkout-container">
+  <div class="checkout-wrapper">
 
-    <h2>Checkout</h2>
+    <!-- LEFT SIDE -->
+    <div class="checkout-left">
+      <h2>Checkout</h2>
 
-    <!-- Customer Info -->
-    <div class="form-section">
       <input id="name" type="text" placeholder="Full Name">
       <input id="email" type="email" placeholder="Email">
       <input id="address" type="text" placeholder="Address">
-    </div>
 
-    <!-- Payment Method -->
-    <div class="form-section">
       <h3>Payment Method</h3>
 
       <label class="payment-option">
@@ -36,22 +32,23 @@
         Bank Transfer
       </label>
 
-  
-    <!-- Order Summary -->
-    <div id="checkout-summary" class="summary-section"></div>
+      <button id="place-order-btn">Place Order</button>
+    </div>
 
-    <!-- Submit Button -->
-    <button id="place-order-btn">Place Order</button>
+    <!-- RIGHT SIDE -->
+    <div class="checkout-right">
+      <h3>Order Summary</h3>
+      <div id="checkout-summary"></div>
+    </div>
 
   </div>
 
-  <!-- Loading Overlay -->
+  <!-- LOADING OVERLAY -->
   <div id="loading-overlay">
     <div class="spinner"></div>
     <p>Processing your order...</p>
   </div>
 
-  <!-- JS -->
   <script src="checkout.js"></script>
 
 </body>
