@@ -5,36 +5,36 @@ body {
   background: black;
   color: white;
   font-family: Arial, sans-serif;
-  padding-top: 160px;
   display: flex;
   justify-content: center;
+  padding-top: 160px;
 }
 
-/* WRAPPER (2 columns) */
-.checkout-wrapper {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-}
-
-/* LEFT SIDE */
-.checkout-left {
+/* MAIN CONTAINER */
+.checkout-container {
   width: 420px;
   background: #0d0d0d;
   padding: 40px;
   border: 1px solid #222;
   border-radius: 6px;
+  text-align: center;
 }
 
-.checkout-left h2 {
+.checkout-container h2 {
   font-size: 32px;
   margin-bottom: 25px;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
+.checkout-container h3 {
+  text-align: left;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
 /* INPUTS */
-.checkout-left input {
+.checkout-container input {
   width: 100%;
   padding: 14px;
   margin: 12px 0;
@@ -45,7 +45,7 @@ body {
   font-size: 15px;
 }
 
-.checkout-left input:focus {
+.checkout-container input:focus {
   border-color: white;
   outline: none;
 }
@@ -60,11 +60,57 @@ body {
   cursor: pointer;
 }
 
+/* DISCOUNT */
+.discount-row {
+  display: flex;
+  gap: 10px;
+}
+
+.apply-btn {
+  padding: 12px 16px;
+  background: #222;
+  color: white;
+  border: 1px solid #444;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 0.3s ease;
+}
+
+.apply-btn:hover {
+  background: #333;
+}
+
+.discount-message {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #7dd3fc;
+  text-align: left;
+}
+
+/* SUMMARY */
+#checkout-summary {
+  background: #111;
+  border: 1px solid #333;
+  padding: 20px;
+  border-radius: 6px;
+  text-align: left;
+}
+
+.summary-item {
+  margin-bottom: 15px;
+}
+
+.summary-total {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 /* BUTTON */
 #place-order-btn {
   width: 100%;
   padding: 14px;
-  margin-top: 20px;
+  margin-top: 25px;
   background: white;
   color: black;
   border: none;
@@ -76,27 +122,6 @@ body {
 
 #place-order-btn:hover {
   background: #d1d1d1;
-}
-
-/* RIGHT SIDE (SUMMARY) */
-.checkout-right {
-  width: 260px;
-  background: #111;
-  border: 1px solid #333;
-  padding: 20px;
-  border-radius: 6px;
-}
-
-.summary-item {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
-}
-
-.summary-total {
-  margin-top: 15px;
-  font-size: 18px;
-  font-weight: bold;
 }
 
 /* LOADING OVERLAY */
@@ -133,19 +158,12 @@ body {
 @media (max-width: 768px) {
   body {
     padding-top: 120px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
-  .checkout-wrapper {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .checkout-left {
+  .checkout-container {
     width: 100%;
     padding: 25px;
-  }
-
-  .checkout-right {
-    width: 100%;
   }
 }
