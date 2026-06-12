@@ -5,41 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="checkout.css">
-  <link rel="stylesheet" href="responsive.css">
 </head>
 
 <body>
 
-  <div class="checkout-wrapper">
+  <div class="checkout-container">
 
-    <!-- LEFT SIDE -->
-    <div class="checkout-left">
-      <h2>Checkout</h2>
+    <h2>Checkout</h2>
 
-      <input id="name" type="text" placeholder="Full Name">
-      <input id="email" type="email" placeholder="Email">
-      <input id="address" type="text" placeholder="Address">
+    <!-- USER INFO -->
+    <input id="name" type="text" placeholder="Full Name">
+    <input id="email" type="email" placeholder="Email">
+    <input id="address" type="text" placeholder="Address">
 
-      <h3>Payment Method</h3>
+    <!-- PAYMENT -->
+    <h3>Payment Method</h3>
 
-      <label class="payment-option">
-        <input type="radio" name="payment" value="cash">
-        Cash
-      </label>
+    <label class="payment-option">
+      <input type="radio" name="payment" value="cash">
+      Cash
+    </label>
 
-      <label class="payment-option">
-        <input type="radio" name="payment" value="bank_transfer">
-        Bank Transfer
-      </label>
+    <label class="payment-option">
+      <input type="radio" name="payment" value="bank_transfer">
+      Bank Transfer
+    </label>
 
-      <button id="place-order-btn">Place Order</button>
+    <!-- DISCOUNT -->
+    <h3>Discount Code</h3>
+    <div class="discount-row">
+      <input id="discount-code" type="text" placeholder="Enter code">
+      <button id="apply-discount-btn" class="apply-btn">Apply</button>
     </div>
+    <p id="discount-message" class="discount-message"></p>
 
-    <!-- RIGHT SIDE -->
-    <div class="checkout-right">
-      <h3>Order Summary</h3>
-      <div id="checkout-summary"></div>
-    </div>
+    <!-- SUMMARY -->
+    <h3>Order Summary</h3>
+    <div id="checkout-summary"></div>
+
+    <!-- BUTTON -->
+    <button id="place-order-btn">Place Order</button>
 
   </div>
 
@@ -53,3 +58,4 @@
 
 </body>
 </html>
+
