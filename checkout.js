@@ -1,15 +1,11 @@
-// AETHER CHECKOUT SYSTEM
-
 // -------------------------
-// LOAD REAL CART
+// LOAD CART
 // -------------------------
 const cart = JSON.parse(localStorage.getItem("aether_cart")) || [];
-
-// Calculate total
 let cartTotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
 // -------------------------
-// DISPLAY SUMMARY
+// RENDER SUMMARY
 // -------------------------
 function renderCheckoutSummary() {
   const summaryContainer = document.getElementById("checkout-summary");
@@ -38,7 +34,7 @@ function renderCheckoutSummary() {
 }
 
 // -------------------------
-// VALIDATION RULES
+// VALIDATION
 // -------------------------
 function validateFields() {
   const name = document.querySelector("#name").value.trim();
@@ -59,12 +55,11 @@ function validateFields() {
 }
 
 // -------------------------
-// SUBMIT ORDER TO BACKEND
+// SUBMIT ORDER
 // -------------------------
 async function submitOrder() {
   if (!validateFields()) return;
 
-  // Show loading overlay instantly
   document.getElementById("loading-overlay").style.display = "flex";
 
   const paymentMethod = document.querySelector("input[name='payment']:checked").value;
@@ -89,7 +84,9 @@ async function submitOrder() {
 
     if (result.success) {
       localStorage.removeItem("aether_cart");
-      window.location.href = `success.html?orderId=${result.orderId}`;
+
+      // Redirect with BOTH orderId + payment method
+      window.location.href = `success.html?orderId=${result.orderId}&payment=${paymentMethod}`;
     } else {
       alert("Error: " + result.error);
       document.getElementById("loading-overlay").style.display = "none";
@@ -105,7 +102,4 @@ async function submitOrder() {
 // INIT
 // -------------------------
 document.addEventListener("DOMContentLoaded", renderCheckoutSummary);
-
-// Attach event listener properly
 document.getElementById("place-order-btn").addEventListener("click", submitOrder);
-
