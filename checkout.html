@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Aether Checkout</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="checkout.css">
   <link rel="stylesheet" href="responsive.css">
 </head>
@@ -10,36 +12,53 @@
 <body>
 
   <div class="checkout-container">
+
     <h2>Checkout</h2>
 
-    <input id="name" placeholder="Full Name">
-    <input id="email" placeholder="Email">
-    <input id="address" placeholder="Address">
+    <!-- Customer Info -->
+    <div class="form-section">
+      <input id="name" type="text" placeholder="Full Name">
+      <input id="email" type="email" placeholder="Email">
+      <input id="address" type="text" placeholder="Address">
+    </div>
 
-    <h3>Payment Method</h3>
+    <!-- Payment Method -->
+    <div class="form-section">
+      <h3>Payment Method</h3>
 
-    <label class="payment-option">
-      <input type="radio" name="payment" value="cash">
-      Cash
-    </label>
+      <label class="payment-option">
+        <input type="radio" name="payment" value="cash">
+        Cash
+      </label>
 
-    <label class="payment-option">
-      <input type="radio" name="payment" value="bank_transfer">
-      Bank Transfer
-    </label>
+      <label class="payment-option">
+        <input type="radio" name="payment" value="bank_transfer">
+        Bank Transfer
+      </label>
 
-    <div id="checkout-summary"></div>
+      <!-- Bank details (hidden until selected) -->
+      <div id="bank-details" class="bank-details hidden">
+        <p><strong>Account Name:</strong> Aether Clothing</p>
+        <p><strong>BSB:</strong> 123-456</p>
+        <p><strong>Account Number:</strong> 987654321</p>
+      </div>
+    </div>
 
-    <!-- FIXED BUTTON -->
+    <!-- Order Summary -->
+    <div id="checkout-summary" class="summary-section"></div>
+
+    <!-- Submit Button -->
     <button id="place-order-btn">Place Order</button>
+
   </div>
 
-  <!-- LOADING OVERLAY -->
+  <!-- Loading Overlay -->
   <div id="loading-overlay">
     <div class="spinner"></div>
     <p>Processing your order...</p>
   </div>
 
+  <!-- JS -->
   <script src="checkout.js"></script>
 
 </body>
