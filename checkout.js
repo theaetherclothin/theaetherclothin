@@ -85,7 +85,6 @@ async function submitOrder() {
     if (result.success) {
       localStorage.removeItem("aether_cart");
 
-      // Redirect with BOTH orderId + payment method
       window.location.href = `success.html?orderId=${result.orderId}&payment=${paymentMethod}`;
     } else {
       alert("Error: " + result.error);
