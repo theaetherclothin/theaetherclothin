@@ -1,10 +1,10 @@
 // -------------------------
-// LOAD CART
+// CART + TOTAL
 // -------------------------
 const cart = JSON.parse(localStorage.getItem("aether_cart")) || [];
 let cartTotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-// DISCOUNT SYSTEM
+// DISCOUNT STATE
 let discountValue = 0;
 let discountApplied = false;
 
@@ -20,6 +20,8 @@ const discountCodes = {
 // -------------------------
 function renderCheckoutSummary() {
   const summaryContainer = document.getElementById("checkout-summary");
+
+  if (!summaryContainer) return;
 
   if (cart.length === 0) {
     summaryContainer.innerHTML = "<p>Your cart is empty.</p>";
@@ -47,8 +49,12 @@ function renderCheckoutSummary() {
 // APPLY DISCOUNT
 // -------------------------
 function applyDiscount() {
-  const code = document.getElementById("discount-code").value.trim().toUpperCase();
+  const codeInput = document.getElementById("discount-code");
   const message = document.getElementById("discount-message");
+
+  if (!codeInput || !message) return;
+
+  const code = codeInput.value.trim().toUpperCase();
 
   if (discountApplied) {
     message.textContent = "A discount has already been applied.";
@@ -80,15 +86,30 @@ function applyDiscount() {
 // VALIDATION
 // -------------------------
 function validateFields() {
-  const name = document.querySelector("#name").value.trim();
-  const email = document.querySelector("#email").value.trim();
-  const address = document.querySelector("#address").value.trim();
+  const name = document.querySelector("#name")?.value.trim() || "";
+  const email = document.querySelector("#email")?.value.trim() || "";
+  const address = document.querySelector("#address")?.value.trim() || "";
   const payment = document.querySelector("input[name='payment']:checked");
 
-  if (!/^[A-Za-z\s]{2,40}$/.test(name)) return alert("Please enter a valid name.");
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return alert("Please enter a valid email.");
-  if (address.length < 5) return alert("Please enter a valid address.");
-  if (!payment) return alert("Please select a payment method.");
+  if (!/^[A-Za-z\s]{2,40}$/.test(name)) {
+    alert("Please enter a valid name.");
+    return false;
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    alert("Please enter a valid email.");
+    return false;
+  }
+
+  if (address.length < 5) {
+    alert("Please enter a valid address.");
+    return false;
+  }
+
+  if (!payment) {
+    alert("Please select a payment method.");
+    return false;
+  }
 
   return true;
 }
@@ -99,7 +120,8 @@ function validateFields() {
 async function submitOrder() {
   if (!validateFields()) return;
 
-  document.getElementById("loading-overlay").style.display = "flex";
+  const overlay = document.getElementById("loading-overlay");
+  if (overlay) overlay.style.display = "flex";
 
   const paymentMethod = document.querySelector("input[name='payment']:checked").value;
 
@@ -127,17 +149,29 @@ async function submitOrder() {
       window.location.href = `success.html?orderId=${result.orderId}&payment=${paymentMethod}`;
     } else {
       alert("Error: " + result.error);
-      document.getElementById("loading-overlay").style.display = "none";
+      if (overlay) overlay.style.display = "none";
     }
   } catch (err) {
     alert("Network error — please try again.");
-    document.getElementById("loading-overlay").style.display = "none";
+    if (overlay) overlay.style.display = "none";
   }
 }
 
 // -------------------------
 // INIT
 // -------------------------
-document.addEventListener("DOMContentLoaded", renderCheckoutSummary);
-document.getElementById("apply-discount-btn").addEventListener("click", applyDiscount);
-document.getElementById("place-order-btn").addEventListener("click", submitOrder);
+document.addEventListener("DOMContentLoaded", () => {
+  renderCheckoutSummary();
+
+  const applyBtn = document.getElementById("apply-discount-btn");
+  const placeOrderBtn = document.getElementById("place-order-btn");
+
+  if (applyBtn) {
+    applyBtn.addEventListener("click", applyDiscount);
+  }
+
+  if (placeOrderBtn) {
+    placeOrderBtn.addEventListener("click", submitOrder);
+  }
+});
+
